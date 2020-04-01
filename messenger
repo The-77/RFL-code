@@ -1,0 +1,22 @@
+import praw
+
+reddit = praw.Reddit(client_id = 'nope', #add your bits in here to make it work
+                 client_secret = 'nope',
+                 password = 'nope',
+                 user_agent = 'nope',
+                 username = 'PelotonMod')
+
+subject = "RFL UAE Tour Predictions" #name of the race
+
+message = "Hey, don't forget to fill in the [RFL for the GP Ouest France - Plouay](https://www.reddit.com/r/peloton/comments/3ij379/rfl_predictions_and_roadcc_reminder_gp_ouest/)! The deadline will be when the race starts on Sunday August 30th at 11:00 local time (CEST). That's 19:00 AEST, 10:00 BST, 05:00 EDT and 02:00 PDT."
+
+#the message content that changes is only name of the race in [], the url, and the deadline time, all of which come from the predictions thread
+
+users = [
+u'The_77',
+u'rest of the user list' #user list is normally hosted on pastebin for the current season
+]
+
+for u in users:
+print (u)
+reddit.redditor(u).message(subject,message)
